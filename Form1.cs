@@ -18,7 +18,7 @@ namespace Project4
             for (int i = 0; i < textBoxOrders.Lines.Length; i++)
             {
                 decimal d;
-                if(decimal.TryParse(textBoxOrders.Lines[i], out d))
+                if(decimal.TryParse(textBoxOrders.Lines[i].TrimStart('$'), out d))
                 {
                     finalPrice += d;
                 }
@@ -35,13 +35,21 @@ namespace Project4
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // On load, load in data from Data.txt.
             StreamReader reader = new StreamReader("Data.txt");
 
             string record = reader.ReadLine();
 
             while (record != null)
             {
-                textBoxOrders.Text = textBoxOrders.Text + record + Environment.NewLine;
+                // split the record to remove date/time from loading into textbox.
+                string[] parts = record.Split('-');
+                // If data is long enough to split, work with it.
+                if(parts.Length >= 2)
+                {
+                    // If the file was not tampered with, this will give us correct data.
+                    textBoxOrders.Text = textBoxOrders.Text + "$" + parts[1] + Environment.NewLine;
+                }
                 record = reader.ReadLine();
             }
             reader.Close();
@@ -94,13 +102,14 @@ namespace Project4
                 totalPrice += TOPPING_CHERRY;
             }
 
-            //Write the total price to an ASCII TEST FILE
+            //Write the total price to the data file.
             StreamWriter writer = new StreamWriter("Data.txt", true);
-            writer.WriteLine(totalPrice.ToString());
+            var dt = DateTime.Now;
+            writer.WriteLine(dt.ToString("MM/dd/yyyy h:mm:ss") + "-" + totalPrice.ToString());
             writer.Flush();
             writer.Close();
 
-            textBoxOrders.Text = textBoxOrders.Text + totalPrice.ToString() + Environment.NewLine; ;
+            textBoxOrders.Text = textBoxOrders.Text + "$" + totalPrice.ToString() + Environment.NewLine; ;
 
         }
 
