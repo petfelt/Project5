@@ -1,4 +1,6 @@
-﻿namespace Project4
+﻿using System;
+
+namespace Project4
 {
     partial class Form1
     {
@@ -38,8 +40,17 @@
             this.checkBoxSprinkles = new System.Windows.Forms.CheckBox();
             this.buttonTotalPrice = new System.Windows.Forms.Button();
             this.labelTotalPrice = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.addOrder = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxOrders = new System.Windows.Forms.TextBox();
             this.groupBoxFlavor.SuspendLayout();
             this.groupBoxToppings.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxFlavor
@@ -47,7 +58,7 @@
             this.groupBoxFlavor.Controls.Add(this.radioButtonStrawberry);
             this.groupBoxFlavor.Controls.Add(this.radioButtonVanilla);
             this.groupBoxFlavor.Controls.Add(this.radioButtonChocolate);
-            this.groupBoxFlavor.Location = new System.Drawing.Point(20, 20);
+            this.groupBoxFlavor.Location = new System.Drawing.Point(8, 18);
             this.groupBoxFlavor.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxFlavor.Name = "groupBoxFlavor";
             this.groupBoxFlavor.Padding = new System.Windows.Forms.Padding(2);
@@ -98,7 +109,7 @@
             this.groupBoxToppings.Controls.Add(this.checkBoxCherry);
             this.groupBoxToppings.Controls.Add(this.checkBoxChoppedNuts);
             this.groupBoxToppings.Controls.Add(this.checkBoxSprinkles);
-            this.groupBoxToppings.Location = new System.Drawing.Point(151, 20);
+            this.groupBoxToppings.Location = new System.Drawing.Point(139, 18);
             this.groupBoxToppings.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxToppings.Name = "groupBoxToppings";
             this.groupBoxToppings.Padding = new System.Windows.Forms.Padding(2);
@@ -142,7 +153,7 @@
             // 
             // buttonTotalPrice
             // 
-            this.buttonTotalPrice.Location = new System.Drawing.Point(20, 158);
+            this.buttonTotalPrice.Location = new System.Drawing.Point(8, 18);
             this.buttonTotalPrice.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTotalPrice.Name = "buttonTotalPrice";
             this.buttonTotalPrice.Size = new System.Drawing.Size(107, 35);
@@ -154,33 +165,114 @@
             // labelTotalPrice
             // 
             this.labelTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelTotalPrice.Location = new System.Drawing.Point(151, 158);
+            this.labelTotalPrice.Location = new System.Drawing.Point(332, 18);
             this.labelTotalPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotalPrice.Name = "labelTotalPrice";
             this.labelTotalPrice.Size = new System.Drawing.Size(118, 35);
             this.labelTotalPrice.TabIndex = 4;
             this.labelTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(293, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Ice Cream Cone Orders";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBoxOrders);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.addOrder);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.groupBoxFlavor);
+            this.groupBox1.Controls.Add(this.groupBoxToppings);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(468, 186);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Select Ice Cream Cone";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(296, 141);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 39);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Clear Ice Cream Cone Orders";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // addOrder
+            // 
+            this.addOrder.Location = new System.Drawing.Point(8, 141);
+            this.addOrder.Name = "addOrder";
+            this.addOrder.Size = new System.Drawing.Size(249, 39);
+            this.addOrder.TabIndex = 7;
+            this.addOrder.Text = "Add Ice Cream Cone Order";
+            this.addOrder.UseVisualStyleBackColor = true;
+            this.addOrder.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.labelTotalPrice);
+            this.groupBox2.Controls.Add(this.buttonTotalPrice);
+            this.groupBox2.Location = new System.Drawing.Point(12, 215);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(468, 70);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(269, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Total Price";
+            // 
+            // textBoxOrders
+            // 
+            this.textBoxOrders.Location = new System.Drawing.Point(296, 28);
+            this.textBoxOrders.Multiline = true;
+            this.textBoxOrders.Name = "textBoxOrders";
+            this.textBoxOrders.Size = new System.Drawing.Size(154, 107);
+            this.textBoxOrders.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 226);
-            this.Controls.Add(this.labelTotalPrice);
-            this.Controls.Add(this.buttonTotalPrice);
-            this.Controls.Add(this.groupBoxToppings);
-            this.Controls.Add(this.groupBoxFlavor);
+            this.ClientSize = new System.Drawing.Size(492, 298);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Ice Cream Shop";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxFlavor.ResumeLayout(false);
             this.groupBoxFlavor.PerformLayout();
             this.groupBoxToppings.ResumeLayout(false);
             this.groupBoxToppings.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -195,6 +287,13 @@
         private System.Windows.Forms.CheckBox checkBoxSprinkles;
         private System.Windows.Forms.Button buttonTotalPrice;
         private System.Windows.Forms.Label labelTotalPrice;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addOrder;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxOrders;
     }
 }
 
