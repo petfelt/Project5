@@ -24,7 +24,6 @@ namespace Project4
                 }
             }
             // Setting label price.
-            Console.WriteLine(finalPrice);
             labelTotalPrice.Text = "$" + finalPrice.ToString();
         }
 
